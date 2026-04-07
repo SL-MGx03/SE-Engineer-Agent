@@ -8,3 +8,4 @@ langchain-mongodb
 langchain_core
 langchain-community
 ipython
+langgraph.checkpoint.mongodb
