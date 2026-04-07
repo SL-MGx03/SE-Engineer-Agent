@@ -11,8 +11,6 @@ from langchain.tools import tool
 from langchain.messages import SystemMessage, HumanMessage, ToolMessage
 
 from pymongo import MongoClient
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 
 from typing import Annotated, Literal, TypedDict
 
@@ -26,14 +24,6 @@ from prompt import prompt
 
 load_dotenv()
 
-app = FastAPI()
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"], 
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 class State(TypedDict):
     messages: Annotated[list, add_messages]
