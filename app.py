@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 
 from langchain_mongodb import MongoDBAtlasVectorSearch
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+from langchain_groq import ChatGroq
 
 from langchain.tools import tool
 from langchain.messages import SystemMessage, HumanMessage, ToolMessage
@@ -132,7 +133,7 @@ def show_agent(agent):
 
 
 embeddings =GoogleGenerativeAIEmbeddings(model="gemini-embedding-2-preview", output_dimensionality=3072)
-model= ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0.2)
+model = ChatGroq(model="llama-3.3-70b-versatile", temperature=0.2)
 
 tools = [software_knowledgebase, get_uml_viewer_link]
 tools_by_name = {tool.name: tool for tool in tools}
